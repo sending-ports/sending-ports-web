@@ -1,0 +1,50 @@
+<div class="container">
+  <h4>Cadastro navio</h4>
+
+  <form [formGroup]="shipForm" (ngSubmit)="create(shipForm.value)">
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text"
+        class="form-control"
+        placeholder="Livramento"
+        formControlName="name" 
+        [style.border-color]="!shipForm.controls['name'].valid && shipForm.controls['name'].touched ? 'red' : ''">
+
+        <div *ngIf="!shipForm.controls['name'].valid &&
+          shipForm.controls['name'].touched"
+          class="alert">This filed is required and allowed just min length 2  and max length 300.</div>
+    </div>
+
+    <div class="form-group">
+      <label>Example select</label>
+      <input type="text"
+        class="form-control"
+        placeholder="Brazil"
+        formControlName="country">
+
+        <div *ngIf="!shipForm.controls['country'].valid &&
+          shipForm.controls['country'].touched"
+          class="alert">This filed is required and allowed just min length 2  and max length 300.</div>
+    </div>
+
+    <input type="submit" class="button expanded" value="Submit Form" [disabled]="!shipForm.valid">
+
+  </form>
+
+  <ng-template #templateModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>One fine body…</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+    </div>
+  </ng-template>
+
+</div>

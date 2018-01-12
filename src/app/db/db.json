@@ -1,0 +1,10 @@
+{
+  "ships": [
+    { "id": 1, "name": "Lages", "country": "Brasil" },
+    { "id": 2, "name": "Livramento", "country": "Arabia Saudita" },
+    { "id": 3, "name": "Fortuna", "country": "Espanha" },
+    { "id": 4, "name": "Liberdade", "country": "França" },
+    { "id": 5, "name": "Saide", "country": "Estados Unidos" },
+    { "id": 6, "name": "Hungri", "country": "India" }
+  ]
+}
