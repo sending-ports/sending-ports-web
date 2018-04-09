@@ -4,6 +4,10 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -19,6 +23,7 @@ import { ShipRegisterComponent } from './ship/ship-register/ship-register.compon
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { ShipMenuComponent } from './ship/ship-menu/ship-menu.component';
 import { ShipListComponent } from './ship/ship-list/ship-list.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -36,11 +41,17 @@ import { ShipListComponent } from './ship/ship-list/ship-list.component';
   imports: [
     BrowserModule,
     HttpModule,
+    AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     NgbModule.forRoot(),
     ReactiveFormsModule,
     RouterModule.forRoot( ROUTES )
   ],
-  providers: [ ShipService ],
+  providers: [ 
+    ShipService, 
+    AuthService 
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
